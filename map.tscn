@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://bkrm60iltvavb"]
+
+[ext_resource type="Texture2D" uid="uid://dghx72d3wi8xw" path="res://Sources/Background.png" id="1_c7s6e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wijl4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0an3"]
+size = Vector2(462.9408, 52.227425)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5pve"]
+size = Vector2(199.10107, 44.52174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urblq"]
+size = Vector2(314.87115, 49.658863)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iw27f"]
+size = Vector2(242.71439, 11.130395)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71pa8"]
+size = Vector2(228.34853, 6.8494587)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_05x41"]
+normal = Vector2(0.999968, -0.007998658)
+distance = 123.83145
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gqbix"]
+distance = 1.7123718
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oysan"]
+normal = Vector2(-0.99935687, 0.03585977)
+distance = 64.79678
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sb2pt"]
+normal = Vector2(-0.0042523127, 0.9999909)
+distance = 15.396068
+
+[node name="Map" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(579, 43)
+scale = Vector2(1.1210936, 1.1679688)
+physics_material_override = SubResource("PhysicsMaterial_wijl4")
+
+[node name="Background" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_c7s6e")
+
+[node name="Collision Left Ledge" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-150.29968, 56.080265)
+shape = SubResource("RectangleShape2D_e0an3")
+
+[node name="Collision Right Ledge" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(290.24744, 49.658863)
+shape = SubResource("RectangleShape2D_p5pve")
+
+[node name="Collision Right Ledge2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(223.4425, -219.18394)
+shape = SubResource("RectangleShape2D_urblq")
+
+[node name="Collision Left Ledge2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-262.29114, -331.77252)
+shape = SubResource("RectangleShape2D_iw27f")
+
+[node name="Collision Platform" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.7838745, -339.05014)
+shape = SubResource("RectangleShape2D_71pa8")
+
+[node name="Left Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-514.676, -34.24749)
+shape = SubResource("WorldBoundaryShape2D_05x41")
+
+[node name="Floor Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-17.839724, 363.8796)
+shape = SubResource("WorldBoundaryShape2D_gqbix")
+
+[node name="Right Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(463.83282, 60.7893)
+shape = SubResource("WorldBoundaryShape2D_oysan")
+
+[node name="Top Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-9.811848, -526.5552)
+shape = SubResource("WorldBoundaryShape2D_sb2pt")
